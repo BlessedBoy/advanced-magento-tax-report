@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<layout version="0.1.0">
-    <taxpercityreport_adminhtml_taxpercityreport_index>
-        <reference name="content">
-            <block type="taxpercityreport/adminhtml_taxpercityreport" name="taxpercityreport" />
-        </reference>
-    </taxpercityreport_adminhtml_taxpercityreport_index>
-</layout>

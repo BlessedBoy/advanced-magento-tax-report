@@ -1,17 +1,17 @@
 <?php
 
-class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class Surpassweb_Advancedtaxreport_Block_Adminhtml_Advancedtaxreport_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
     protected $_countTotals = true;
 
     public function __construct()
     {
         parent::__construct();
-        $this->setId('taxpercityreportGrid');
+        $this->setId('advancedtaxreportGrid');
         $this->setDefaultDir('ASC');
         $this->setSaveParametersInSession(true);
 
-        $default_state = Mage::getStoreConfig('taxpercity/reportsettings/defaultstate');
+        $default_state = Mage::getStoreConfig('advancedtaxreport/reportsettings/defaultstate');
         if ($default_state != '') {
             $this->setDefaultFilter(array('region' => $default_state));
             $this->setDefaultSort('city');
@@ -27,8 +27,8 @@ class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Grid extends 
             $countryCode = 'US';
         }
 
-        $from_source = Mage::getStoreConfig('taxpercity/reportsettings/periodfrom');
-        $to_source = Mage::getStoreConfig('taxpercity/reportsettings/periodto');
+        $from_source = Mage::getStoreConfig('advancedtaxreport/reportsettings/periodfrom');
+        $to_source = Mage::getStoreConfig('advancedtaxreport/reportsettings/periodto');
         $from = date('Y-m-d:G:i:s', strtotime($from_source));
         $to = date('Y-m-d:G:i:s', strtotime($to_source));
 
@@ -73,24 +73,24 @@ class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Grid extends 
 
     protected function _prepareColumns()
     {
-        $show_rate = Mage::getStoreConfig('taxpercity/reportsettings/showrate');
+        $show_rate = Mage::getStoreConfig('advancedtaxreport/reportsettings/showrate');
 
         $this->addColumn('region', array(
-            'header' => Mage::helper('taxpercityreport')->__('State'),
+            'header' => Mage::helper('advancedtaxreport')->__('State'),
             'align' => 'left',
             'sortable' => true,
             'index' => 'region'
         ));
 
         $this->addColumn('county', array(
-            'header' => Mage::helper('taxpercityreport')->__('County'),
+            'header' => Mage::helper('advancedtaxreport')->__('County'),
             'align' => 'left',
             'sortable' => true,
             'index' => 'county'
         ));
 
         $this->addColumn('city', array(
-            'header' => Mage::helper('taxpercityreport')->__('City'),
+            'header' => Mage::helper('advancedtaxreport')->__('City'),
             'align' => 'left',
             'sortable' => true,
             'index' => 'city'
@@ -98,7 +98,7 @@ class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Grid extends 
 
         if ($show_rate) {
             $this->addColumn('tax_rate', array(
-                'header' => Mage::helper('taxpercityreport')->__('Rate (%)'),
+                'header' => Mage::helper('advancedtaxreport')->__('Rate (%)'),
                 'align' => 'right',
                 'sortable' => false,
                 'filter' => false,
@@ -107,7 +107,7 @@ class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Grid extends 
         }
 
         $this->addColumn('tax_amount', array(
-            'header' => Mage::helper('taxpercityreport')->__('Tax Dollar Amount Collected'),
+            'header' => Mage::helper('advancedtaxreport')->__('Tax Dollar Amount Collected'),
             'align' => 'right',
             'sortable' => true,
             'filter'    => false,
@@ -115,42 +115,42 @@ class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Grid extends 
         ));
 
         $this->addColumn('grand_total', array(
-            'header' => Mage::helper('taxpercityreport')->__('Total City Sales Amount'),
+            'header' => Mage::helper('advancedtaxreport')->__('Total City Sales Amount'),
             'align' => 'right',
             'sortable' => true,
             'filter'    => false,
             'index' => 'grand_total'
         ));
 
-        $this->addExportType('*/*/exportCsv', Mage::helper('taxpercityreport')->__('CSV'));
-        $this->addExportType('*/*/exportXml', Mage::helper('taxpercityreport')->__('XML'));
+        $this->addExportType('*/*/exportCsv', Mage::helper('advancedtaxreport')->__('CSV'));
+        $this->addExportType('*/*/exportXml', Mage::helper('advancedtaxreport')->__('XML'));
 
         parent::_prepareColumns();
     }
 
 //    protected function _prepareMassaction()
 //    {
-//        $this->setMassactionIdField('taxpercityreport_id');
-//        $this->getMassactionBlock()->setFormFieldName('taxpercityreport');
+//        $this->setMassactionIdField('advancedtaxreport_id');
+//        $this->getMassactionBlock()->setFormFieldName('advancedtaxreport');
 //
 //        $this->getMassactionBlock()->addItem('delete', array(
-//             'label'    => Mage::helper('taxpercityreport')->__('Delete'),
+//             'label'    => Mage::helper('advancedtaxreport')->__('Delete'),
 //             'url'      => $this->getUrl('*/*/massDelete'),
-//             'confirm'  => Mage::helper('taxpercityreport')->__('Are you sure?')
+//             'confirm'  => Mage::helper('advancedtaxreport')->__('Are you sure?')
 //        ));
 //
-//        $statuses = Mage::getSingleton('taxpercityreport/status')->getOptionArray();
+//        $statuses = Mage::getSingleton('advancedtaxreport/status')->getOptionArray();
 //
 //        array_unshift($statuses, array('label'=>'', 'value'=>''));
 //        $this->getMassactionBlock()->addItem('status', array(
-//             'label'=> Mage::helper('taxpercityreport')->__('Change status'),
+//             'label'=> Mage::helper('advancedtaxreport')->__('Change status'),
 //             'url'  => $this->getUrl('*/*/massStatus', array('_current'=>true)),
 //             'additional' => array(
 //                    'visibility' => array(
 //                         'name' => 'status',
 //                         'type' => 'select',
 //                         'class' => 'required-entry',
-//                         'label' => Mage::helper('taxpercityreport')->__('Status'),
+//                         'label' => Mage::helper('advancedtaxreport')->__('Status'),
 //                         'values' => $statuses
 //                     )
 //             )

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <advancedtaxreport_adminhtml_advancedtaxreport_index>
+        <reference name="content">
+            <block type="advancedtaxreport/adminhtml_advancedtaxreport" name="advancedtaxreport" />
+        </reference>
+    </advancedtaxreport_adminhtml_advancedtaxreport_index>
+</layout>

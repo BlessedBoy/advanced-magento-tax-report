@@ -2,40 +2,40 @@
 <!-- 
 /**
  * @category   Surpassweb
- * @package    Surpassweb_Taxpercityreport
- * @author     Reydel Leon
+ * @package    Surpassweb_Advancedtaxreport
+ * @author     Reydel Leon <reydel@surpassweb.com>
  */
  -->
 <config>
     <modules>
-        <Surpassweb_Taxpercityreport>
+        <Surpassweb_Advancedtaxreport>
             <version>0.1.0</version>
-        </Surpassweb_Taxpercityreport>
+        </Surpassweb_Advancedtaxreport>
     </modules>
     <admin>
         <routers>
-			<taxpercityreport>
+			<advancedtaxreport>
 				<use>admin</use>
 				<args>
-					<module>Surpassweb_Taxpercityreport</module>
-					<frontName>taxpercityreport</frontName>
+					<module>Surpassweb_Advancedtaxreport</module>
+					<frontName>advancedtaxreport</frontName>
 				</args>
-			</taxpercityreport>
+			</advancedtaxreport>
         </routers>
     </admin>
     <adminhtml>
 		<menu>
-			<taxpercityreport module="taxpercityreport">
+			<advancedtaxreport module="advancedtaxreport">
 				<title>Surpassweb</title>
 				<sort_order>71</sort_order>               
 				<children>
-					<items module="taxpercityreport">
+					<items module="advancedtaxreport">
 						<title>Advanced Tax Report</title>
 						<sort_order>0</sort_order>
-						<action>taxpercityreport/adminhtml_taxpercityreport</action>
+						<action>advancedtaxreport/adminhtml_advancedtaxreport</action>
 					</items>
 				</children>
-			</taxpercityreport>
+			</advancedtaxreport>
 		</menu>
 		<acl>
 			<resources>
@@ -44,71 +44,71 @@
 				</all>
 				<admin>
 					<children>
-                        <Surpassweb_Taxpercityreport translate="title" module="taxpercityreport">
-                            <title>Taxpercityreport</title>
+                        <Surpassweb_Advancedtaxreport translate="title" module="advancedtaxreport">
+                            <title>Advancedtaxreport</title>
                             <sort_order>1000</sort_order>
                             <children>
-                                <taxpercityreport translate="title">
+                                <advancedtaxreport translate="title">
                                     <title>Advanced Tax Report</title>
-                                </taxpercityreport>
+                                </advancedtaxreport>
                             </children>
-						</Surpassweb_Taxpercityreport>
+						</Surpassweb_Advancedtaxreport>
 					</children>
 				</admin>
 			</resources>
 		</acl>
 		<layout>
 			<updates>
-				<taxpercityreport>
-					<file>taxpercityreport.xml</file>
-				</taxpercityreport>
+				<advancedtaxreport>
+					<file>advancedtaxreport.xml</file>
+				</advancedtaxreport>
 			</updates>
 		</layout>
     </adminhtml>   
     <global>
         <models>
-            <taxpercityreport>
-                <class>Surpassweb_Taxpercityreport_Model</class>
-                <resourceModel>taxpercityreport_mysql4</resourceModel>
-            </taxpercityreport>
-            <taxpercityreport_mysql4>
-                <class>Surpassweb_Taxpercityreport_Model_Mysql4</class>
+            <advancedtaxreport>
+                <class>Surpassweb_Advancedtaxreport_Model</class>
+                <resourceModel>advancedtaxreport_mysql4</resourceModel>
+            </advancedtaxreport>
+            <advancedtaxreport_mysql4>
+                <class>Surpassweb_Advancedtaxreport_Model_Mysql4</class>
                 <entities>
-                    <taxpercityreport>
-                        <table>taxpercityreport</table>
-                    </taxpercityreport>
+                    <advancedtaxreport>
+                        <table>advancedtaxreport</table>
+                    </advancedtaxreport>
                 </entities>
-            </taxpercityreport_mysql4>
+            </advancedtaxreport_mysql4>
         </models>
         <resources>
-            <taxpercityreport_setup>
+            <advancedtaxreport_setup>
                 <setup>
-                    <module>Surpassweb_Taxpercityreport</module>
+                    <module>Surpassweb_Advancedtaxreport</module>
                 </setup>
                 <connection>
                     <use>core_setup</use>
                 </connection>
-            </taxpercityreport_setup>
-            <taxpercityreport_write>
+            </advancedtaxreport_setup>
+            <advancedtaxreport_write>
                 <connection>
                     <use>core_write</use>
                 </connection>
-            </taxpercityreport_write>
-            <taxpercityreport_read>
+            </advancedtaxreport_write>
+            <advancedtaxreport_read>
                 <connection>
                     <use>core_read</use>
                 </connection>
-            </taxpercityreport_read>
+            </advancedtaxreport_read>
         </resources>
         <blocks>
-            <taxpercityreport>
-                <class>Surpassweb_Taxpercityreport_Block</class>
-            </taxpercityreport>
+            <advancedtaxreport>
+                <class>Surpassweb_Advancedtaxreport_Block</class>
+            </advancedtaxreport>
         </blocks>
         <helpers>
-            <taxpercityreport>
-                <class>Surpassweb_Taxpercityreport_Helper</class>
-            </taxpercityreport>
+            <advancedtaxreport>
+                <class>Surpassweb_Advancedtaxreport_Helper</class>
+            </advancedtaxreport>
         </helpers>
     </global>
 </config>

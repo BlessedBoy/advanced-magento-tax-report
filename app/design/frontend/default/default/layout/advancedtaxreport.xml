@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <advancedtaxreport_index_index>
+        <reference name="content">
+            <block type="advancedtaxreport/advancedtaxreport" name="advancedtaxreport" template="advancedtaxreport/advancedtaxreport.phtml" />
+        </reference>
+    </advancedtaxreport_index_index>
+</layout> 

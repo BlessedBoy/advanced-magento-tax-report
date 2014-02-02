@@ -1,6 +1,6 @@
 <?php
 
-class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
+class Surpassweb_Advancedtaxreport_Block_Adminhtml_Advancedtaxreport_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
   protected function _prepareForm()
   {

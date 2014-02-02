@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Surpassweb
+ * @package    Surpassweb_Advancedtaxreport
+ * @author     Reydel Leon <reydel@surpassweb.com>
+ * @license    LGPL3
+ */
+ -->
+<config>
+    <modules>
+        <Surpassweb_Advancedtaxreport>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Surpassweb_Advancedtaxreport>
+    </modules>
+</config> 

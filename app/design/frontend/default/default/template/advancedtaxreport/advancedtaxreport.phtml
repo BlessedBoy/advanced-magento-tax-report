@@ -8,7 +8,7 @@
                     3) If you have a field named news_id, then it becomes getNewsId, etc.
                 */
                 /*
-                $news = Mage::getModel('taxpercityreport/taxpercityreport')->load(15);
+                $news = Mage::getModel('advancedtaxreport/advancedtaxreport')->load(15);
                 echo $news->getNewsId();
                 echo $news->getTitle();
                 echo $news->getContent();
@@ -21,7 +21,7 @@
 
                */
                 /*
-                $object = $this->getTaxpercityreport();
+                $object = $this->getAdvancedtaxreport();
                 echo 'id: '.$object['test_id'].'<br/>';
 				echo 'title: '.$object['title'].'<br/>';
 				echo 'content: '.$object['content'].'<br/>';
@@ -37,7 +37,7 @@
                 /*
                 $i = 0;
                 
-                $collection = Mage::getModel('taxpercityreport/taxpercityreport')->getCollection();
+                $collection = Mage::getModel('advancedtaxreport/advancedtaxreport')->getCollection();
                 $collection->setPageSize(5);
                 $collection->setCurPage(2);
                 $size = $collection->getSize();
@@ -57,7 +57,7 @@
                     2) Call the save() function only on a single record.
                 */
                 /*
-                $object = Mage::getModel('taxpercityreport/taxpercityreport')->load(1);
+                $object = Mage::getModel('advancedtaxreport/advancedtaxreport')->load(1);
                 $object->setTitle('This is a changed title');
                 $object->save();
 				*/

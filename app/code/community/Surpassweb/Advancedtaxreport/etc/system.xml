@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <config>
     <tabs>
-        <customreport translate="label" module="taxpercityreport">
+        <customreport translate="label" module="advancedtaxreport">
             <label>Surpassweb</label>
             <sort_order>300</sort_order>
         </customreport>
     </tabs>
     <sections>
-        <taxpercity  translate="label" module="taxpercityreport">
+        <advancedtaxreport  translate="label" module="advancedtaxreport">
             <label>Advanced Tax Report</label>
             <tab>customreport</tab>
             <frontend_type>text</frontend_type>
@@ -64,7 +64,7 @@
                         <periodfrom translate="label">
                             <label>From</label>
                             <frontend_type>text</frontend_type>
-                            <frontend_model>taxpercityreport/adminhtml_system_config_date</frontend_model>
+                            <frontend_model>advancedtaxreport/adminhtml_system_config_date</frontend_model>
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
@@ -74,7 +74,7 @@
                         <periodto translate="label">
                             <label>To</label>
                             <frontend_type>text</frontend_type>
-                            <frontend_model>taxpercityreport/adminhtml_system_config_date</frontend_model>
+                            <frontend_model>advancedtaxreport/adminhtml_system_config_date</frontend_model>
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
@@ -84,6 +84,6 @@
                     </fields>
                 </reportsettings>
             </groups>
-        </taxpercity>
+        </advancedtaxreport>
     </sections>
 </config>

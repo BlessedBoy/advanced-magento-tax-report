@@ -1,11 +1,11 @@
 <?php
 
-class Surpassweb_Taxpercityreport_Adminhtml_TaxpercityreportController extends Mage_Adminhtml_Controller_action
+class Surpassweb_Advancedtaxreport_Adminhtml_AdvancedtaxreportController extends Mage_Adminhtml_Controller_action
 {
 	protected function _initAction() {
 		$this->loadLayout()
-			->_setActiveMenu('taxpercityreport/items')
-			->_addBreadcrumb(Mage::helper('adminhtml')->__('Surpassweb - Tax Report'), Mage::helper('adminhtml')->__('Surpassweb - Tax Report'));
+			->_setActiveMenu('advancedtaxreport/items')
+			->_addBreadcrumb(Mage::helper('adminhtml')->__('Surpassweb - Tax Report'), Mage::helper('adminhtml')->__('Surpassweb - Advanced Tax Report'));
 		
 		return $this;
 	}   
@@ -20,7 +20,7 @@ class Surpassweb_Taxpercityreport_Adminhtml_TaxpercityreportController extends M
 
 	public function editAction() {
 		$id     = $this->getRequest()->getParam('id');
-		$model  = Mage::getModel('taxpercityreport/taxpercityreport')->load($id);
+		$model  = Mage::getModel('advancedtaxreport/advancedtaxreport')->load($id);
 
 		if ($model->getId() || $id == 0) {
 			$data = Mage::getSingleton('adminhtml/session')->getFormData(true);
@@ -28,22 +28,22 @@ class Surpassweb_Taxpercityreport_Adminhtml_TaxpercityreportController extends M
 				$model->setData($data);
 			}
 
-			Mage::register('taxpercityreport_data', $model);
+			Mage::register('advancedtaxreport_data', $model);
 
 			$this->loadLayout();
-			$this->_setActiveMenu('taxpercityreport/items');
+			$this->_setActiveMenu('advancedtaxreport/items');
 
 			$this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item Manager'), Mage::helper('adminhtml')->__('Item Manager'));
 			$this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item News'), Mage::helper('adminhtml')->__('Item News'));
 
 			$this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
 
-			$this->_addContent($this->getLayout()->createBlock('taxpercityreport/adminhtml_taxpercityreport_edit'))
-				->_addLeft($this->getLayout()->createBlock('taxpercityreport/adminhtml_taxpercityreport_edit_tabs'));
+			$this->_addContent($this->getLayout()->createBlock('advancedtaxreport/adminhtml_advancedtaxreport_edit'))
+				->_addLeft($this->getLayout()->createBlock('advancedtaxreport/adminhtml_advancedtaxreport_edit_tabs'));
 
 			$this->renderLayout();
 		} else {
-			Mage::getSingleton('adminhtml/session')->addError(Mage::helper('taxpercityreport')->__('Item does not exist'));
+			Mage::getSingleton('adminhtml/session')->addError(Mage::helper('advancedtaxreport')->__('Item does not exist'));
 			$this->_redirect('*/*/');
 		}
 	}
@@ -54,8 +54,8 @@ class Surpassweb_Taxpercityreport_Adminhtml_TaxpercityreportController extends M
  
     public function exportCsvAction()
     {
-        $fileName   = 'taxpercityreport.csv';
-        $content    = $this->getLayout()->createBlock('taxpercityreport/adminhtml_taxpercityreport_grid')
+        $fileName   = 'advancedtaxreport.csv';
+        $content    = $this->getLayout()->createBlock('advancedtaxreport/adminhtml_advancedtaxreport_grid')
             ->getCsv();
 
         $this->_sendUploadResponse($fileName, $content);
@@ -63,8 +63,8 @@ class Surpassweb_Taxpercityreport_Adminhtml_TaxpercityreportController extends M
 
     public function exportXmlAction()
     {
-        $fileName   = 'taxpercityreport.xml';
-        $content    = $this->getLayout()->createBlock('taxpercityreport/adminhtml_taxpercityreport_grid')
+        $fileName   = 'advancedtaxreport.xml';
+        $content    = $this->getLayout()->createBlock('advancedtaxreport/adminhtml_advancedtaxreport_grid')
             ->getXml();
 
         $this->_sendUploadResponse($fileName, $content);
