@@ -29,8 +29,8 @@ class Surpassweb_Advancedtaxreport_Block_Adminhtml_Advancedtaxreport_Grid extend
 
         $from_source = Mage::getStoreConfig('advancedtaxreport/reportsettings/periodfrom');
         $to_source = Mage::getStoreConfig('advancedtaxreport/reportsettings/periodto');
-        $from = date('Y-m-d:G:i:s', strtotime($from_source));
-        $to = date('Y-m-d:G:i:s', strtotime($to_source));
+        $from = !empty($from_source) ? date('Y-m-d:G:i:s', strtotime($from_source)) : false;
+        $to = !empty($to_source) ? date('Y-m-d:G:i:s', strtotime($to_source)) : false;
 
         $collection = Mage::getModel('sales/order_address')->getCollection();
         $collection
@@ -38,12 +38,15 @@ class Surpassweb_Advancedtaxreport_Block_Adminhtml_Advancedtaxreport_Grid extend
             ->addAttributeToSelect('city')
             ->addAttributeToFilter('country_id', $countryCode)
             ->addAttributeToFilter('address_type', 'shipping')
-            ->addAttributeToFilter('created_at', array('from' => $from, 'to' => $to))
             ->addFieldToFilter(array('status', 'status'),
                 array(
                     array('eq' => 'complete'),
                     array('eq' => 'processing')
                 ));
+
+        if ($from & $to) {
+            $collection->addAttributeToFilter('created_at', array('from' => $from, 'to' => $to));
+        }
 
         $collection->getSelect()->joinLeft(
             array('order' => 'mvmt_sales_flat_order'),
