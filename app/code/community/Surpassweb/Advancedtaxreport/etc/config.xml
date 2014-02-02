@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Surpassweb
+ * @package    Surpassweb_Taxpercityreport
+ * @author     Reydel Leon
+ */
+ -->
+<config>
+    <modules>
+        <Surpassweb_Taxpercityreport>
+            <version>0.1.0</version>
+        </Surpassweb_Taxpercityreport>
+    </modules>
+    <admin>
+        <routers>
+			<taxpercityreport>
+				<use>admin</use>
+				<args>
+					<module>Surpassweb_Taxpercityreport</module>
+					<frontName>taxpercityreport</frontName>
+				</args>
+			</taxpercityreport>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<taxpercityreport module="taxpercityreport">
+				<title>Surpassweb</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="taxpercityreport">
+						<title>Advanced Tax Report</title>
+						<sort_order>0</sort_order>
+						<action>taxpercityreport/adminhtml_taxpercityreport</action>
+					</items>
+				</children>
+			</taxpercityreport>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+                        <Surpassweb_Taxpercityreport translate="title" module="taxpercityreport">
+                            <title>Taxpercityreport</title>
+                            <sort_order>1000</sort_order>
+                            <children>
+                                <taxpercityreport translate="title">
+                                    <title>Advanced Tax Report</title>
+                                </taxpercityreport>
+                            </children>
+						</Surpassweb_Taxpercityreport>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<taxpercityreport>
+					<file>taxpercityreport.xml</file>
+				</taxpercityreport>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <taxpercityreport>
+                <class>Surpassweb_Taxpercityreport_Model</class>
+                <resourceModel>taxpercityreport_mysql4</resourceModel>
+            </taxpercityreport>
+            <taxpercityreport_mysql4>
+                <class>Surpassweb_Taxpercityreport_Model_Mysql4</class>
+                <entities>
+                    <taxpercityreport>
+                        <table>taxpercityreport</table>
+                    </taxpercityreport>
+                </entities>
+            </taxpercityreport_mysql4>
+        </models>
+        <resources>
+            <taxpercityreport_setup>
+                <setup>
+                    <module>Surpassweb_Taxpercityreport</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </taxpercityreport_setup>
+            <taxpercityreport_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </taxpercityreport_write>
+            <taxpercityreport_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </taxpercityreport_read>
+        </resources>
+        <blocks>
+            <taxpercityreport>
+                <class>Surpassweb_Taxpercityreport_Block</class>
+            </taxpercityreport>
+        </blocks>
+        <helpers>
+            <taxpercityreport>
+                <class>Surpassweb_Taxpercityreport_Helper</class>
+            </taxpercityreport>
+        </helpers>
+    </global>
+</config>

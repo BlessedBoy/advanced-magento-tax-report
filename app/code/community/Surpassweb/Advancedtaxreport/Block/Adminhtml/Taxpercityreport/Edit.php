@@ -1,0 +1,45 @@
+<?php
+
+class Surpassweb_Taxpercityreport_Block_Adminhtml_Taxpercityreport_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
+{
+    public function __construct()
+    {
+        parent::__construct();
+                 
+        $this->_objectId = 'id';
+        $this->_blockGroup = 'taxpercityreport';
+        $this->_controller = 'adminhtml_taxpercityreport';
+        
+        $this->_updateButton('save', 'label', Mage::helper('taxpercityreport')->__('Save Item'));
+        $this->_updateButton('delete', 'label', Mage::helper('taxpercityreport')->__('Delete Item'));
+		
+        $this->_addButton('saveandcontinue', array(
+            'label'     => Mage::helper('adminhtml')->__('Save And Continue Edit'),
+            'onclick'   => 'saveAndContinueEdit()',
+            'class'     => 'save',
+        ), -100);
+
+        $this->_formScripts[] = "
+            function toggleEditor() {
+                if (tinyMCE.getInstanceById('taxpercityreport_content') == null) {
+                    tinyMCE.execCommand('mceAddControl', false, 'taxpercityreport_content');
+                } else {
+                    tinyMCE.execCommand('mceRemoveControl', false, 'taxpercityreport_content');
+                }
+            }
+
+            function saveAndContinueEdit(){
+                editForm.submit($('edit_form').action+'back/edit/');
+            }
+        ";
+    }
+
+    public function getHeaderText()
+    {
+        if( Mage::registry('taxpercityreport_data') && Mage::registry('taxpercityreport_data')->getId() ) {
+            return Mage::helper('taxpercityreport')->__("Edit Item '%s'", $this->htmlEscape(Mage::registry('taxpercityreport_data')->getTitle()));
+        } else {
+            return Mage::helper('taxpercityreport')->__('Add Item');
+        }
+    }
+}
