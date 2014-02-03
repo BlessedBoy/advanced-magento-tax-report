@@ -14,36 +14,38 @@
     </modules>
     <admin>
         <routers>
-			<advancedtaxreport>
-				<use>admin</use>
-				<args>
-					<module>Surpassweb_Advancedtaxreport</module>
-					<frontName>advancedtaxreport</frontName>
-				</args>
-			</advancedtaxreport>
+            <advancedtaxreport>
+                <use>admin</use>
+                <args>
+                    <module>Surpassweb_Advancedtaxreport</module>
+                    <frontName>advancedtaxreport</frontName>
+                </args>
+            </advancedtaxreport>
         </routers>
     </admin>
     <adminhtml>
-		<menu>
-			<advancedtaxreport module="advancedtaxreport">
-				<title>Surpassweb</title>
-				<sort_order>71</sort_order>               
-				<children>
-					<items module="advancedtaxreport">
-						<title>Advanced Tax Report</title>
-						<sort_order>0</sort_order>
-						<action>advancedtaxreport/adminhtml_advancedtaxreport</action>
-					</items>
-				</children>
-			</advancedtaxreport>
-		</menu>
-		<acl>
-			<resources>
-				<all>
-					<title>Allow Everything</title>
-				</all>
-				<admin>
-					<children>
+        <menu>
+            <report>
+                <children>
+                    <salesroot>
+                        <children>
+                            <advancedtaxreport module="advancedtaxreport">
+                                <title>Advanced Tax Report</title>
+                                <sort_order>100</sort_order>
+                                <action>advancedtaxreport/adminhtml_advancedtaxreport</action>
+                            </advancedtaxreport>
+                        </children>
+                    </salesroot>
+                </children>
+            </report>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
                         <Surpassweb_Advancedtaxreport translate="title" module="advancedtaxreport">
                             <title>Advancedtaxreport</title>
                             <sort_order>1000</sort_order>
@@ -52,19 +54,19 @@
                                     <title>Advanced Tax Report</title>
                                 </advancedtaxreport>
                             </children>
-						</Surpassweb_Advancedtaxreport>
-					</children>
-				</admin>
-			</resources>
-		</acl>
-		<layout>
-			<updates>
-				<advancedtaxreport>
-					<file>advancedtaxreport.xml</file>
-				</advancedtaxreport>
-			</updates>
-		</layout>
-    </adminhtml>   
+                        </Surpassweb_Advancedtaxreport>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <advancedtaxreport>
+                    <file>advancedtaxreport.xml</file>
+                </advancedtaxreport>
+            </updates>
+        </layout>
+    </adminhtml>
     <global>
         <models>
             <advancedtaxreport>
