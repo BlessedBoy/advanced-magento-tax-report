@@ -49,14 +49,14 @@ class Surpassweb_Advancedtaxreport_Block_Adminhtml_Advancedtaxreport_Grid extend
         }
 
         $collection->getSelect()->joinLeft(
-            array('order' => 'mvmt_sales_flat_order'),
+            array('order' => 'sales_flat_order'),
             'order.entity_id = main_table.parent_id',
             array(
                 'status' => 'order.status',
                 'created_at' => 'order.created_at',
                 'grand_total' => 'SUM(order.grand_total)'))
             ->joinLeft(
-                array('order_tax' => 'mvmt_sales_order_tax'),
+                array('order_tax' => 'sales_order_tax'),
                 'order_tax.order_id = main_table.parent_id',
                 array(
                     'county' => 'order_tax.title',
